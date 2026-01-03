@@ -23,14 +23,13 @@ public class Complaint {
     private LocalDateTime CreatedAt;
 
     //constructor
-    public Complaint(String description, String Location, String category, String status, String createdBy,
-            LocalDateTime createdAt) {
-        this.description = description;
-        this.Location = Location;
-        this.category = category;
-        this.status = status;
-        CreatedBy = createdBy;
-        CreatedAt = createdAt;
+    public Complaint() {
+        // this.description = description;
+        // this.Location = Location;
+        // this.category = category;
+        // this.status = status;
+        // CreatedBy = createdBy;
+        // CreatedAt = createdAt;
     }
 
     //getter and setters
