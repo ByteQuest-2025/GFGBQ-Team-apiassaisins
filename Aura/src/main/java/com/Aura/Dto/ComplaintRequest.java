@@ -8,6 +8,15 @@ public class ComplaintRequest {
     private String Location;
     private String category;
 
+    //parametruzed constructor
+   
+    public ComplaintRequest(String description, String Location, String category) {
+        this.description = description;
+        this.Location = Location;
+        this.category = category;
+    }
+
+
     //getter and setters
     public String getDescription() {
         return description;
