@@ -7,6 +7,7 @@ public class ComplaintRequest {
     private String description;
     private String Location;
     private String category;
+    private String severity;
 
     //parametruzed constructor
    
@@ -15,6 +16,15 @@ public class ComplaintRequest {
         this.Location = Location;
         this.category = category;
     }
+
+     public ComplaintRequest(String description, String Location, String category, String severity) {
+        this.description = description;
+        this.Location = Location;
+        this.category = category;
+        this.severity = severity;
+    }
+
+
 
 
     //getter and setters
@@ -35,6 +45,16 @@ public class ComplaintRequest {
     }
     public void setCategory(String category) {
         this.category = category;
+    }
+
+
+    public String getSeverity() {
+        return severity;
+    }
+
+
+    public void setSeverity(String severity) {
+        this.severity = severity;
     }
     
 }
