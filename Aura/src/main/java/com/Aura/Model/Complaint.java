@@ -19,6 +19,7 @@ public class Complaint {
     private String Location;
     private String category;
     private String status;
+    private String severity;
     private String CreatedBy;
     private LocalDateTime CreatedAt;
 
@@ -88,4 +89,14 @@ public class Complaint {
     public void setCreatedAt(LocalDateTime createdAt) {
         CreatedAt = createdAt;
     }
+
+    public String getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(String severity) {
+        this.severity = severity;
+    }
+
+    
 }

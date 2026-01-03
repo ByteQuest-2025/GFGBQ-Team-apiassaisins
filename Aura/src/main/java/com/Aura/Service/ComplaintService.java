@@ -33,7 +33,7 @@ public class ComplaintService {
         complaint.setCreatedAt(LocalDateTime.now());
 
         //ai classification step
-        ClassificationResult airesult = aiclassifier.classifycomplaint(request.getDescription());//ai classifer that from full red line
+        ClassificationResult airesult = aiclassifier.classifyComplaint(request.getDescription());//ai classifer that from full red line
         if(airesult!=null) {
             if(airesult.getCategory()!=null) complaint.setCategory(airesult.getCategory());
             if(airesult.getLocation()!=null) complaint.setLocation(airesult.getLocation());
