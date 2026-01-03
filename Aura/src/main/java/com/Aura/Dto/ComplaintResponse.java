@@ -9,6 +9,8 @@ public class ComplaintResponse {
     private String Location;
     private String category;
     private String status;
+    private String severity;
+
 
     //getter and setters
     public Long getId() {
@@ -41,6 +43,13 @@ public class ComplaintResponse {
     public void setStatus(String status) {
         this.status = status;
     }
+    public String getSeverity() {
+        return severity;
+    }
+    public void setSeverity(String severity) {
+        this.severity = severity;
+    }
+    
 
   
     

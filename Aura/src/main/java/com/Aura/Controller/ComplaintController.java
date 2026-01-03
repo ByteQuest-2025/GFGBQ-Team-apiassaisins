@@ -65,11 +65,15 @@ public class ComplaintController {
     @GetMapping("/filter")
     public List<ComplaintResponse> filterComplaints(
             @RequestParam(required = false) String status,
-            @RequestParam(required = false) String category) {
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String severity) 
+
+            {
         return complaintrepo.findAll()
                 .stream()
                 .filter(c -> status == null || c.getStatus().equalsIgnoreCase(status))
                 .filter(c -> category == null || c.getCategory().equalsIgnoreCase(category))
+                .filter(c -> severity == null || c.getSeverity().equalsIgnoreCase(severity)) 
                 .map(this::mapToResponse) 
                 .toList();
     }
@@ -80,6 +84,7 @@ public class ComplaintController {
         response.setDescription(complaint.getDescription());
         response.setLocation(complaint.getLocation());
         response.setCategory(complaint.getCategory());
+        response.setSeverity(complaint.getSeverity());
         response.setStatus(complaint.getStatus());
         return response;
     }
