@@ -20,7 +20,7 @@ Design and develop an AI-driven grievance redressal platform using Natural Langu
 - Assist government bodies in resolving issues efficiently and transparently
 
 ## 🔗 Project Links
-- **Deployment Link:** [superb-opinion.surge.sh](http://superb-opinion.surge.sh)
+- **Deployment Link:** [absent-business.surge.sh](http://absent-business.surge.sh)
 - **Video Presentation:** [Google Drive Link](https://drive.google.com/file/d/1ChRxCC2btBzbIHskg5q4XzcUml1iF58_/view?usp=drivesdk)
 - **PPT Link:** [Google Drive Link](https://drive.google.com/file/d/11d-YkY94DXLP4IdQcPt7llsK_AOf7Zld/view?usp=drive_link)
 
@@ -60,7 +60,7 @@ Aura is an AI-powered governance platform designed to streamline citizen grievan
    ```
 
 ## 📖 Usage Instructions
-1. **Access the platform:** Navigate to `superb-opinion.surge.sh`.
+1. **Access the platform:** Navigate to `absent-business.surge.sh`.
 2. **Submit a Grievance:** Enter the details of your complaint in the provided form.
 3. **AI Classification:** The system will automatically classify and prioritize your request.
 4. **Dashboard:** Authorities can view, manage, and resolve complaints via the department-specific dashboards.

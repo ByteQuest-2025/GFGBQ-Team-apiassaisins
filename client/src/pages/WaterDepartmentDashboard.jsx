@@ -9,11 +9,23 @@ function WaterDepartmentDashboard() {
     const [grievances, setGrievances] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    const MOCK_DATA = [
+        { id: 'W001', title: 'Main Water Line Burst', area: 'North Zone', category: 'Water Supply', priority: 'high', status: 'submitted', date: '2024-01-04T10:00:00Z' },
+        { id: 'W002', title: 'Sewage Contamination in Supply', area: 'East Zone', category: 'Water Quality', priority: 'high', status: 'in-progress', date: '2024-01-04T09:30:00Z' },
+        { id: 'W003', title: 'Chronic Low Pressure', area: 'South Zone', category: 'Pressure Issues', priority: 'medium', status: 'submitted', date: '2024-01-03T15:20:00Z' },
+        { id: 'W004', title: 'Incorrect Billing Cycle', area: 'West Zone', category: 'Billing', priority: 'low', status: 'resolved', date: '2024-01-02T11:45:00Z' },
+        { id: 'W005', title: 'Public Tap Leakage', area: 'Central Zone', category: 'Leakage', priority: 'medium', status: 'in-progress', date: '2024-01-04T08:15:00Z' },
+        { id: 'W006', title: 'Illegal Commercial Connection', area: 'North Zone', category: 'Water Supply', priority: 'high', status: 'submitted', date: '2024-01-04T12:00:00Z' },
+        { id: 'W007', title: 'Full Water Tank Overflow', area: 'South Zone', category: 'Water Supply', priority: 'medium', status: 'submitted', date: '2024-01-04T07:45:00Z' },
+        { id: 'W008', title: 'Muddy Water in Taps', area: 'East Zone', category: 'Water Quality', priority: 'high', status: 'submitted', date: '2024-01-04T11:10:00Z' },
+        { id: 'W009', title: 'Continuous Road Leakage', area: 'West Zone', category: 'Leakage', priority: 'medium', status: 'in-progress', date: '2024-01-03T19:20:00Z' },
+        { id: 'W010', title: 'New Connection Delay', area: 'Central Zone', category: 'Billing', priority: 'low', status: 'submitted', date: '2024-01-04T06:30:00Z' }
+    ];
+
     useEffect(() => {
         const fetchGrievances = async () => {
             try {
                 const data = await complaintService.getAllComplaints();
-                // Map backend data to frontend format
                 const mappedData = data.map(g => ({
                     id: g.id,
                     title: g.description,
@@ -24,11 +36,11 @@ function WaterDepartmentDashboard() {
                     date: g.createdAt || new Date().toISOString()
                 }));
 
-                // Filter for Water Department categories if needed
-                // For now showing all to prove connection
-                setGrievances(mappedData);
+                // Combine mock data with API data if needed, or just prioritize mock for display
+                setGrievances([...MOCK_DATA, ...mappedData]);
             } catch (error) {
                 console.error('Error fetching grievances:', error);
+                setGrievances(MOCK_DATA);
             } finally {
                 setIsLoading(false);
             }

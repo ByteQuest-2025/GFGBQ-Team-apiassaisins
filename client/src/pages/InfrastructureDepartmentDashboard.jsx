@@ -9,11 +9,23 @@ function InfrastructureDepartmentDashboard() {
     const [grievances, setGrievances] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    const MOCK_DATA = [
+        { id: 'I001', title: 'Giant Pothole on Bypass', area: 'North Zone', category: 'Roads', priority: 'high', status: 'submitted', date: '2024-01-04T10:00:00Z' },
+        { id: 'I002', title: 'Entire Block Streetlight Failure', area: 'South Zone', category: 'Streetlights', priority: 'high', status: 'in-progress', date: '2024-01-04T09:30:00Z' },
+        { id: 'I003', title: 'Open Drainage Canal Risk', area: 'East Zone', category: 'Drainage', priority: 'high', status: 'submitted', date: '2024-01-04T11:20:00Z' },
+        { id: 'I004', title: 'Abandoned Building Hazard', area: 'Central Zone', category: 'Buildings', priority: 'medium', status: 'submitted', date: '2024-01-03T15:45:00Z' },
+        { id: 'I005', title: 'Broken Park Fencing', area: 'West Zone', category: 'Parks', priority: 'low', status: 'resolved', date: '2024-01-02T14:30:00Z' },
+        { id: 'I006', title: 'Illegal Construction on Sidewalk', area: 'North Zone', category: 'Buildings', priority: 'high', status: 'submitted', date: '2024-01-04T12:15:00Z' },
+        { id: 'I007', title: 'Bridge Joint Gap Increasing', area: 'East Zone', category: 'Roads', priority: 'high', status: 'submitted', date: '2024-01-04T08:00:00Z' },
+        { id: 'I008', title: 'Main Junction Signal Dead', area: 'South Zone', category: 'Streetlights', priority: 'high', status: 'in-progress', date: '2024-01-04T13:00:00Z' },
+        { id: 'I009', title: 'Flooded Underpass', area: 'West Zone', category: 'Drainage', priority: 'medium', status: 'submitted', date: '2024-01-04T07:10:00Z' },
+        { id: 'I010', title: 'Footpath Stones Loose', area: 'Central Zone', category: 'Roads', priority: 'low', status: 'submitted', date: '2024-01-04T06:00:00Z' }
+    ];
+
     useEffect(() => {
         const fetchGrievances = async () => {
             try {
                 const data = await complaintService.getAllComplaints();
-                // Map backend data to frontend format
                 const mappedData = data.map(g => ({
                     id: g.id,
                     title: g.description,
@@ -24,9 +36,10 @@ function InfrastructureDepartmentDashboard() {
                     date: g.createdAt || new Date().toISOString()
                 }));
 
-                setGrievances(mappedData);
+                setGrievances([...MOCK_DATA, ...mappedData]);
             } catch (error) {
                 console.error('Error fetching grievances:', error);
+                setGrievances(MOCK_DATA);
             } finally {
                 setIsLoading(false);
             }
