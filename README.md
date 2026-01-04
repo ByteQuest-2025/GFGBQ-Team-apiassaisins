@@ -40,7 +40,7 @@ Aura is an AI-powered governance platform designed to streamline citizen grievan
 ### Installation Steps
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-repo/project-name.git
+   git clone https://github.com/ByteQuest-2025/GFGBQ-Team-apiassaisins
    cd project-name
    ```
 
