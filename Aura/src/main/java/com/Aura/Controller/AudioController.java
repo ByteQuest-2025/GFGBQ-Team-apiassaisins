@@ -11,23 +11,25 @@ import com.Aura.Service.ComplaintService;
 import com.Aura.Service.SpeechToTextService;
 
 @RestController
-
 public class AudioController {
-     private final SpeechToTextService speechservice;
+
+    private final SpeechToTextService speechservice;
     private final ComplaintService complaintservice;
 
-    
     public AudioController(SpeechToTextService speechservice, ComplaintService complaintservice) {
         this.speechservice = speechservice;
         this.complaintservice = complaintservice;
     }
 
-
+    // Single endpoint handling both audio + citizenId
     @PostMapping("/audio")
-    public ComplaintResponse submitAudioComplaint(@RequestParam MultipartFile audioFile) {
+    public ComplaintResponse submitAudioComplaint(@RequestParam("file") MultipartFile audioFile,
+                                                  @RequestParam(value = "citizenId", required = false) String citizenId) {//string error
         String text = speechservice.transcribe(audioFile);
-        return complaintservice.submitresponse(new ComplaintRequest(text, null, null));
-    }
 
-    
+        ComplaintRequest request = new ComplaintRequest(text, null, null, "AUTO");
+        // optionally set citizenId if ComplaintRequest supports it
+
+        return complaintservice.submitresponse(request);
+    }
 }

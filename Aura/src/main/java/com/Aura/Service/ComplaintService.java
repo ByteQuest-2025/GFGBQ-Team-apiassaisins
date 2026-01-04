@@ -29,11 +29,12 @@ public class ComplaintService {
         complaint.setLocation(request.getLocation());
         complaint.setCategory(request.getCategory());
         complaint.setStatus("SUBMITTED");
+        complaint.setSeverity(request.getSeverity());
         complaint.setCreatedBy("Citizen");
         complaint.setCreatedAt(LocalDateTime.now());
 
         //ai classification step
-        ClassificationResult airesult = aiclassifier.classifyComplaint(request.getDescription());//ai classifer that from full red line
+        ClassificationResult airesult = aiclassifier.classifyComplaint(request.getDescription());
         if(airesult!=null) {
             if(airesult.getCategory()!=null) complaint.setCategory(airesult.getCategory());
             if(airesult.getLocation()!=null) complaint.setLocation(airesult.getLocation());
@@ -61,6 +62,7 @@ public class ComplaintService {
         response.setDescription(complaint.getDescription());
         response.setLocation(complaint.getLocation());
         response.setCategory(complaint.getCategory());
+         response.setSeverity(complaint.getSeverity());
         response.setStatus(complaint.getStatus());
         return response;
     }
